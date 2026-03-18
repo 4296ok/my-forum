@@ -81,3 +81,65 @@ button:hover {
     padding: 10px;
   }
 }
+
+@font-face { font-family: "Font1"; src: url("fonts/Font1.otf") format("opentype"); }
+@font-face { font-family: "Font2"; src: url("fonts/Font2.ttf") format("truetype"); }
+@font-face { font-family: "Font3"; src: url("fonts/Font3.ttf") format("truetype"); }
+@font-face { font-family: "Font4"; src: url("fonts/Font4.otf") format("opentype"); }
+@font-face { font-family: "Font5"; src: url("fonts/Font5.ttf") format("truetype"); }
+@font-face { font-family: "Font6"; src: url("fonts/Font6.ttf") format("truetype"); }
+@font-face { font-family: "Font7"; src: url("fonts/Font7.otf") format("opentype"); }
+@font-face { font-family: "Font8"; src: url("fonts/Font8.ttf") format("truetype"); }
+@font-face { font-family: "Font9"; src: url("fonts/Font9.ttf") format("truetype"); }
+@font-face { font-family: "Font10"; src: url("fonts/Font10.ttf") format("truetype"); }
+@font-face { font-family: "Font11"; src: url("fonts/Font11.ttf") format("truetype"); }
+@font-face { font-family: "Font12"; src: url("fonts/Font12.otf") format("opentype"); }
+@font-face { font-family: "Font13"; src: url("fonts/Font13.otf") format("opentype"); }
+@font-face { font-family: "Font14"; src: url("fonts/Font14.ttf") format("truetype"); }
+@font-face { font-family: "Font15"; src: url("fonts/Font15.otf") format("opentype"); }
+@font-face { font-family: "Font16"; src: url("fonts/Font16.ttf") format("truetype"); }
+@font-face { font-family: "Font17"; src: url("fonts/Font17.ttf") format("truetype"); }
+@font-face { font-family: "Font18"; src: url("fonts/Font18.ttf") format("truetype"); }
+@font-face { font-family: "Font19"; src: url("fonts/Font19.ttf") format("truetype"); }
+@font-face { font-family: "Font20"; src: url("fonts/Font20.ttf") format("truetype"); }
+@font-face { font-family: "Font21"; src: url("fonts/Font21.ttf") format("truetype"); }
+@font-face { font-family: "Font22"; src: url("fonts/Font22.otf") format("opentype"); }
+@font-face { font-family: "Font23"; src: url("fonts/Font23.ttf") format("truetype"); }
+@font-face { font-family: "Font24"; src: url("fonts/Font24.ttf") format("truetype"); }
+@font-face { font-family: "Font25"; src: url("fonts/Font25.ttf") format("truetype"); }
+@font-face { font-family: "Font26"; src: url("fonts/Font26.ttf") format("truetype"); }
+@font-face { font-family: "Font27"; src: url("fonts/Font27.otf") format("opentype"); }
+@font-face { font-family: "Font28"; src: url("fonts/Font28.otf") format("opentype"); }
+
+/* Screensaver overlay — sits on top of forum */
+
+/* Screensaver overlay — sits on top of forum */
+#screensaver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;           /* show immediately */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;           /* on top of forum */
+    overflow: hidden;
+}
+
+#screensaver.dark {
+    background-color: black;
+    color: white;
+}
+
+#screensaver.light {
+    background-color: white;
+    color: black;
+}
+
+#screensaver #sentence-box {
+    font-size: 5vw;
+    text-align: center;
+    line-height: 1;
+    word-break: break-word;
+}
