@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Forum</title>
+<style>
+body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+.comment { margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+</style>
+</head>
+<body>
+<h1>My Forum</h1>
+<div id="post"></div>
+
+<h2>Comments</h2>
+<div id="comments"></div>
+
+<h3>Add Comment</h3>
+<input type="text" id="username" placeholder="Your name">
+<br>
+<textarea id="message" placeholder="Your comment"></textarea>
+<br>
+<button onclick="addComment()">Submit</button>
+
+<script>
+async function fetchPost() {
+    const res = await fetch('/post');
+    const data = await res.json();
+    document.getElementById('post').innerText = data.content;
+}
+
+async function fetchComments() {
+    const res = await fetch('/comments');
+    const data = await res.json();
+    const commentsDiv = document.getElementById('comments');
+    commentsDiv.innerHTML = '';
+    data.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'comment';
+        div.innerHTML = `<strong>${c.username}</strong>: ${c.message}`;
+        commentsDiv.appendChild(div);
+    });
+}
+
+async function addComment() {
+    const username = document.getElementById('username').value || 'Anonymous';
+    const message = document.getElementById('message').value;
+    if (!message) return alert('Comment cannot be empty');
+    const res = await fetch('/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, message })
+    });
+    document.getElementById('message').value = '';
+    fetchComments();
+}
+
+fetchPost();
+fetchComments();
+setInterval(fetchComments, 5000); // refresh comments every 5s
+</script>
+</body>
+</html>
